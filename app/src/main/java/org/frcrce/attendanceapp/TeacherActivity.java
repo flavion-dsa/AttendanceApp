@@ -16,14 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherActivity extends AppCompatActivity {
+    private String mUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
 
+        Bundle bundle = getIntent().getExtras();
+        mUsername = bundle.getString("username");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle(mUsername);
         setSupportActionBar(toolbar);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
